@@ -22,7 +22,7 @@ export default defineConfig({
         name: 'Population Stats',
         short_name: 'PopStats',
         description: 'Population statistics visualization application',
-        theme_color: '#000000',
+        theme_color: '#ffffff',
         icons: [
           {
             src: '/icons/icon-192x192.png',
