@@ -4,8 +4,9 @@ import {
   ChartOptions,
   registerables,
 } from "chart.js";
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { MarriageChartProps } from "@/types";
+import { DetailDrawer } from "./DetailDrawer";
 
 ChartJS.register(...registerables);
 
@@ -16,6 +17,24 @@ export function MarriageChart({
 }: MarriageChartProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<ChartJS | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  // 准备表格数据
+  const tableData = data.years
+    .map((year, index) => ({
+      year: year.replace("年", ""),
+      marriages: data.marriages[index],
+      divorces: data.divorces[index],
+      source: data.sources?.[index] || "数据来源：国家统计局",
+    }))
+    .sort((a, b) => Number(b.year) - Number(a.year));
+
+  const columns = [
+    { key: "year", label: "年份" },
+    { key: "marriages", label: "结婚数" },
+    { key: "divorces", label: "离婚数" },
+    { key: "source", label: "数据来源" },
+  ];
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -86,15 +105,15 @@ export function MarriageChart({
             bottom: 10,
           },
         },
-        tooltip: {
-          callbacks: {
-            afterBody: (tooltipItems) => {
-              const index = tooltipItems[0].dataIndex;
-              const source = data.sources?.[index] || "数据来源：国家统计局";
-              return [source];
-            },
-          },
-        },
+        // tooltip: {
+        //   callbacks: {
+        //     afterBody: (tooltipItems) => {
+        //       const index = tooltipItems[0].dataIndex;
+        //       const source = data.sources?.[index] || "数据来源：国家统计局";
+        //       return [source];
+        //     },
+        //   },
+        // },
       },
       scales: {
         y: {
@@ -138,8 +157,23 @@ export function MarriageChart({
   }, [data, showMarriages, showDivorces]);
 
   return (
-    <div class="chart-wrapper">
-      <canvas ref={canvasRef}></canvas>
+    <div>
+      <div class="chart-wrapper">
+        <canvas ref={canvasRef}></canvas>
+      </div>
+      <button
+        class="btn btn-sm btn-primary"
+        onClick={() => setIsDrawerOpen(true)}
+      >
+        详情
+      </button>
+      <DetailDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        title="婚姻数据详情"
+        data={tableData}
+        columns={columns}
+      />
     </div>
   );
 }

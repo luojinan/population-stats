@@ -4,8 +4,9 @@ import {
   ChartOptions,
   registerables,
 } from "chart.js";
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { ChartProps } from "@/types";
+import { DetailDrawer } from "./DetailDrawer";
 
 // 注册所有 Chart.js 组件
 ChartJS.register(...registerables);
@@ -19,6 +20,22 @@ export function Chart({
 }: ChartProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<ChartJS | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  // 准备表格数据
+  const tableData = data.years
+    .map((year, index) => ({
+      year,
+      birth: data.birth[index],
+      death: data.death[index],
+    }))
+    .sort((a, b) => b.year - a.year);
+
+  const columns = [
+    { key: "year", label: "年份" },
+    { key: "birth", label: "出生人口" },
+    { key: "death", label: "死亡人口" },
+  ];
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -132,5 +149,24 @@ export function Chart({
     };
   }, [data, showBirth, showDeath]);
 
-  return <canvas ref={canvasRef} />;
+  return (
+    <div>
+      <div class="chart-container">
+        <canvas ref={canvasRef} />
+      </div>
+      <button
+        class="btn btn-sm btn-primary"
+        onClick={() => setIsDrawerOpen(true)}
+      >
+        详情
+      </button>
+      <DetailDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
+        title="人口数据详情"
+        data={tableData}
+        columns={columns}
+      />
+    </div>
+  );
 }
