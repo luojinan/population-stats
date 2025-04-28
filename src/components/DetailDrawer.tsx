@@ -37,7 +37,6 @@ export function DetailDrawer({
           for="detail-drawer"
           aria-label="close sidebar"
           class="drawer-overlay"
-          onClick={onClose}
         ></label>
         <div class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           <h3 class="text-lg font-bold mb-4">{title}</h3>

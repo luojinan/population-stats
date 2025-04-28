@@ -4,23 +4,17 @@ import {
   ChartOptions,
   registerables,
 } from "chart.js";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useRef } from "preact/hooks";
+import { useTheme } from "@/contexts/ThemeContext";
 import { ChartProps } from "@/types";
-import { DetailDrawer } from "./DetailDrawer";
 
 // 注册所有 Chart.js 组件
 ChartJS.register(...registerables);
 
-export function Chart({
-  data,
-  startYear,
-  endYear,
-  showBirth,
-  showDeath,
-}: ChartProps) {
+export function Chart({ data, showBirth, showDeath }: ChartProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const chartRef = useRef<ChartJS | null>(null);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const { theme } = useTheme();
 
   // 准备表格数据
   const tableData = data.years
@@ -43,6 +37,14 @@ export function Chart({
     const ctx = canvasRef.current.getContext("2d");
     if (!ctx) return;
 
+    const isDark = theme === "dark";
+    const textColor = isDark
+      ? "rgba(255, 255, 255, 0.87)"
+      : "rgba(0, 0, 0, 0.87)";
+    const gridColor = isDark
+      ? "rgba(255, 255, 255, 0.1)"
+      : "rgba(0, 0, 0, 0.1)";
+
     const chartData: ChartData = {
       labels: data.years,
       datasets: [
@@ -51,8 +53,10 @@ export function Chart({
               {
                 label: "出生人口",
                 data: data.birth,
-                borderColor: "rgb(255, 99, 132)",
-                backgroundColor: "rgba(255, 99, 132, 0.1)",
+                borderColor: isDark ? "rgb(255, 99, 132)" : "rgb(220, 38, 38)",
+                backgroundColor: isDark
+                  ? "rgba(255, 99, 132, 0.1)"
+                  : "rgba(220, 38, 38, 0.1)",
                 borderWidth: 2,
                 tension: 0.1,
                 fill: true,
@@ -64,8 +68,10 @@ export function Chart({
               {
                 label: "死亡人口",
                 data: data.death,
-                borderColor: "rgb(54, 162, 235)",
-                backgroundColor: "rgba(54, 162, 235, 0.1)",
+                borderColor: isDark ? "rgb(54, 162, 235)" : "rgb(37, 99, 235)",
+                backgroundColor: isDark
+                  ? "rgba(54, 162, 235, 0.1)"
+                  : "rgba(37, 99, 235, 0.1)",
                 borderWidth: 2,
                 tension: 0.1,
                 fill: true,
@@ -82,6 +88,7 @@ export function Chart({
         legend: {
           position: "top",
           labels: {
+            color: textColor,
             font: {
               size: 12,
             },
@@ -94,6 +101,7 @@ export function Chart({
           text: "人口数（万人）",
           position: "top",
           align: "center",
+          color: textColor,
           font: {
             size: 12,
           },
@@ -110,23 +118,32 @@ export function Chart({
             display: false,
           },
           ticks: {
+            color: textColor,
             font: {
               size: 10,
             },
+          },
+          grid: {
+            color: gridColor,
           },
         },
         x: {
           title: {
             display: true,
             text: "年份",
+            color: textColor,
             font: {
               size: 12,
             },
           },
           ticks: {
+            color: textColor,
             font: {
               size: 10,
             },
+          },
+          grid: {
+            color: gridColor,
           },
         },
       },
@@ -147,26 +164,13 @@ export function Chart({
         chartRef.current.destroy();
       }
     };
-  }, [data, showBirth, showDeath]);
+  }, [data, showBirth, showDeath, theme]);
 
   return (
-    <div>
-      <div class="chart-container">
+    <div class="border border-base-300 rounded-lg p-1 md:p-4">
+      <div class="w-full h-64 md:h-96">
         <canvas ref={canvasRef} />
       </div>
-      <button
-        class="btn btn-sm btn-primary"
-        onClick={() => setIsDrawerOpen(true)}
-      >
-        详情
-      </button>
-      <DetailDrawer
-        isOpen={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        title="人口数据详情"
-        data={tableData}
-        columns={columns}
-      />
     </div>
   );
 }

@@ -78,4 +78,22 @@ export interface MarriageYearData {
     Q3?: MarriageQuarterData;
     Q4?: MarriageQuarterData;
   };
+}
+
+export interface DrawerColumn {
+  key: string;
+  label: string;
+}
+
+export interface PopulationDrawerData {
+  year: number;
+  birth: number;
+  death: number;
+}
+
+export interface MarriageDrawerData {
+  year: string;
+  marriages: number;
+  divorces: number;
+  source: string;
 } 
