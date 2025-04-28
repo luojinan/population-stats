@@ -137,7 +137,7 @@ export function MarriageChart({
         },
         x: {
           title: {
-            display: true,
+            display: false,
             text: "年份",
             color: textColor,
             font: {
@@ -175,7 +175,7 @@ export function MarriageChart({
   }, [data, showMarriages, showDivorces, theme]);
 
   return (
-    <div class="border border-base-300 rounded-lg p-1 md:p-4">
+    <div class="border border-base-300 rounded-lg px-1 py-2 md:p-4">
       <div class="w-full h-64 md:h-96">
         <canvas ref={canvasRef} />
       </div>
