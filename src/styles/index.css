@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-base-100 text-base-content;
+  }
+}
+
+@layer components {
+  .chart-container {
+    @apply card bg-base-200 shadow-xl p-4;
+  }
+  
+  .chart-wrapper {
+    @apply w-full h-96;
+  }
+  
+  .header {
+    @apply text-center py-8;
+  }
+  
+  .footer {
+    @apply text-center py-4 text-sm text-base-content/70;
+  }
+} 

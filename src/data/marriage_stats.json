@@ -1,0 +1,258 @@
+{
+  "1985": {
+    "marriages": 831.3,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1986": {
+    "marriages": 882.3,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1987": {
+    "marriages": 924.7,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1988": {
+    "marriages": 899.2,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1989": {
+    "marriages": 934.8,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1990": {
+    "marriages": 951.1,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1991": {
+    "marriages": 953.6,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1992": {
+    "marriages": 954.5,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1993": {
+    "marriages": 912.1,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1994": {
+    "marriages": 929.0,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1995": {
+    "marriages": 934.1,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1996": {
+    "marriages": 934.0,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1997": {
+    "marriages": 909.0,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1998": {
+    "marriages": 891.8,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "1999": {
+    "marriages": 885.3,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2000": {
+    "marriages": 848.5,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2001": {
+    "marriages": 805.0,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2002": {
+    "marriages": 786.0,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2003": {
+    "marriages": 811.4,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2004": {
+    "marriages": 867.2,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2005": {
+    "marriages": 823.1,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2006": {
+    "marriages": 945.0,
+    "divorces": null,
+    "source": "历史统计数据"
+  },
+  "2007": {
+    "marriages": 991.4,
+    "divorces": 140.40,
+    "source": "历史统计数据"
+  },
+  "2008": {
+    "marriages": 1098.3,
+    "divorces": 155.30,
+    "source": "历史统计数据"
+  },
+  "2009": {
+    "marriages": 1212.4,
+    "divorces": 171.30,
+    "source": "历史统计数据"
+  },
+  "2010": {
+    "marriages": 1241.0,
+    "divorces": 196.10,
+    "source": "历史统计数据"
+  },
+  "2011": {
+    "marriages": 1302.36,
+    "divorces": 211.10,
+    "source": "历史统计数据"
+  },
+  "2012": {
+    "marriages": 1323.59,
+    "divorces": 238.80,
+    "source": "历史统计数据"
+  },
+  "2013": {
+    "marriages": 1346.93,
+    "divorces": 278.00,
+    "source": "历史统计数据"
+  },
+  "2014": {
+    "marriages": 1306.74,
+    "divorces": 292.50,
+    "source": "历史统计数据"
+  },
+  "2015": {
+    "marriages": 1224.71,
+    "divorces": 312.70,
+    "source": "历史统计数据"
+  },
+  "2016": {
+    "marriages": 1142.82,
+    "divorces": 346.80,
+    "source": "历史统计数据"
+  },
+  "2017": {
+    "marriages": 1063.1,
+    "divorces": 369.32,
+    "source": "历史统计数据"
+  },
+  "2018": {
+    "marriages": 1013.94,
+    "divorces": 380.10,
+    "source": "历史统计数据"
+  },
+  "2019": {
+    "marriages": 927.33,
+    "divorces": 404.32,
+    "source": "历史统计数据"
+  },
+  "2020": {
+    "marriages": 814.33,
+    "divorces": 373.33,
+    "source": "历史统计数据"
+  },
+  "2021": {
+    "marriages": 764.3,
+    "divorces": 213.90,
+    "source": "历史统计数据"
+  },
+  "2022": {
+    "marriages": 683.5,
+    "divorces": 210.00,
+    "source": "历史统计数据"
+  },
+  "2023": {
+    "marriages": 768.0,
+    "divorces": 259.3,
+    "source": "https://www.mca.gov.cn/mzsj/tjsj/2023/202304tjsj.html",
+    "quarters": {
+      "Q1": {
+        "marriages": 214.7,
+        "divorces": 64.1,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2023/202301tjsj.html"
+      },
+      "Q2": {
+        "marriages": 392.8,
+        "divorces": 131.7,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2023/202302tjsj.html"
+      },
+      "Q3": {
+        "marriages": 569.0,
+        "divorces": 197.3,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2023/202303tjsj.html"
+      },
+      "Q4": {
+        "marriages": 768.0,
+        "divorces": 259.3,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2023/202304tjsj.html"
+      }
+    }
+  },
+  "2024": {
+    "marriages": 610.6,
+    "divorces": 262.1,
+    "source": "https://www.mca.gov.cn/mzsj/tjsj/2024/2024dssjdtjsj.htm",
+    "quarters": {
+      "Q1": {
+        "marriages": 196.9,
+        "divorces": 57.3,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2024/202401dyjdtjsj.html"
+      },
+      "Q2": {
+        "marriages": 343.0,
+        "divorces": 127.4,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2024/2024dejdtjsj.html"
+      },
+      "Q3": {
+        "marriages": 474.7,
+        "divorces": 196.7,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2024/2024dsjdtjsj.htm"
+      },
+      "Q4": {
+        "marriages": 610.6,
+        "divorces": 262.1,
+        "source": "https://www.mca.gov.cn/mzsj/tjsj/2024/2024dssjdtjsj.htm"
+      }
+    }
+  },
+  "2025": {
+    "marriages": 181.0,
+    "divorces": 63.0,
+    "source": "https://www.mca.gov.cn/mzsj/xzqh/2025/202501dyjdtjsj.htm",
+    "quarters": {
+      "Q1": {
+        "marriages": 181.0,
+        "divorces": 63.0,
+        "source": "https://www.mca.gov.cn/mzsj/xzqh/2025/202501dyjdtjsj.htm"
+      }
+    }
+  }
+}
