@@ -66,7 +66,7 @@ export function processMarriageData(
     const yearData = data[year.toString()];
     if (!yearData) continue;
 
-    years.push(`${year}年`);
+    years.push(year.toString());
     marriages.push(yearData.marriages);
     divorces.push(yearData.divorces || 0);
     sources.push(yearData.source);

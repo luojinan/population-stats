@@ -27,8 +27,8 @@ export function Chart({ data, showBirth, showDeath }: ChartProps) {
 
   const columns = [
     { key: "year", label: "年份" },
-    { key: "birth", label: "出生人口" },
-    { key: "death", label: "死亡人口" },
+    { key: "birth", label: "出生数" },
+    { key: "death", label: "死亡数" },
   ];
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export function Chart({ data, showBirth, showDeath }: ChartProps) {
         ...(showBirth
           ? [
               {
-                label: "出生人口",
+                label: "出生数",
                 data: data.birth,
                 borderColor: isDark ? "rgb(255, 99, 132)" : "rgb(220, 38, 38)",
                 backgroundColor: isDark
@@ -66,7 +66,7 @@ export function Chart({ data, showBirth, showDeath }: ChartProps) {
         ...(showDeath
           ? [
               {
-                label: "死亡人口",
+                label: "死亡数",
                 data: data.death,
                 borderColor: isDark ? "rgb(54, 162, 235)" : "rgb(37, 99, 235)",
                 backgroundColor: isDark
@@ -84,6 +84,11 @@ export function Chart({ data, showBirth, showDeath }: ChartProps) {
     const options: ChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: {
+        mode: "nearest",
+        intersect: false,
+        axis: "x",
+      },
       plugins: {
         legend: {
           position: "top",

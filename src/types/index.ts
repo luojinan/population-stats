@@ -95,5 +95,4 @@ export interface MarriageDrawerData {
   year: string;
   marriages: number;
   divorces: number;
-  source: string;
 } 

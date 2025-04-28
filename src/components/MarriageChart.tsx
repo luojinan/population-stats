@@ -22,10 +22,9 @@ export function MarriageChart({
   // 准备表格数据
   const tableData = data.years
     .map((year, index) => ({
-      year: year.replace("年", ""),
+      year,
       marriages: data.marriages[index],
       divorces: data.divorces[index],
-      source: data.sources?.[index] || "数据来源：国家统计局",
     }))
     .sort((a, b) => Number(b.year) - Number(a.year));
 
@@ -33,7 +32,6 @@ export function MarriageChart({
     { key: "year", label: "年份" },
     { key: "marriages", label: "结婚数" },
     { key: "divorces", label: "离婚数" },
-    { key: "source", label: "数据来源" },
   ];
 
   useEffect(() => {
@@ -89,6 +87,11 @@ export function MarriageChart({
     const options: ChartOptions = {
       responsive: true,
       maintainAspectRatio: false,
+      interaction: {
+        mode: "nearest",
+        intersect: false,
+        axis: "x",
+      },
       plugins: {
         legend: {
           position: "top",

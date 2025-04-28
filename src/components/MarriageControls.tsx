@@ -8,18 +8,24 @@ export function MarriageControls({
 }: MarriageControlsProps) {
   return (
     <div class="flex gap-2">
-      <button
-        class={`btn ${showMarriages ? "btn-primary" : "btn-outline"}`}
-        onClick={onToggleMarriages}
-      >
-        结婚数
-      </button>
-      <button
-        class={`btn ${showDivorces ? "btn-primary" : "btn-outline"}`}
-        onClick={onToggleDivorces}
-      >
-        离婚数
-      </button>
+      <label class="label cursor-pointer gap-1">
+        <input
+          type="checkbox"
+          class="checkbox checkbox-primary"
+          checked={showMarriages}
+          onChange={onToggleMarriages}
+        />
+        <span class="label-text">结婚数</span>
+      </label>
+      <label class="label cursor-pointer gap-1">
+        <input
+          type="checkbox"
+          class="checkbox checkbox-primary"
+          checked={showDivorces}
+          onChange={onToggleDivorces}
+        />
+        <span class="label-text">离婚数</span>
+      </label>
     </div>
   );
 }
