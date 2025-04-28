@@ -63,6 +63,29 @@ export function MarriageChart({
         intersect: false,
       },
       plugins: {
+        legend: {
+          position: "top",
+          labels: {
+            font: {
+              size: 12,
+            },
+            boxWidth: 12,
+            padding: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "数量（万对）",
+          position: "top",
+          align: "center",
+          font: {
+            size: 12,
+          },
+          padding: {
+            top: 0,
+            bottom: 10,
+          },
+        },
         tooltip: {
           callbacks: {
             afterBody: (tooltipItems) => {
@@ -79,8 +102,19 @@ export function MarriageChart({
           display: true,
           position: "left",
           title: {
-            display: true,
-            text: "数量（万对）",
+            display: false,
+          },
+          ticks: {
+            font: {
+              size: 10,
+            },
+          },
+        },
+        x: {
+          ticks: {
+            font: {
+              size: 10,
+            },
           },
         },
       },

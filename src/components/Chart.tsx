@@ -68,6 +68,21 @@ export function Chart({
             font: {
               size: 12,
             },
+            boxWidth: 12,
+            padding: 10,
+          },
+        },
+        title: {
+          display: true,
+          text: "人口数（万人）",
+          position: "top",
+          align: "center",
+          font: {
+            size: 12,
+          },
+          padding: {
+            top: 0,
+            bottom: 10,
           },
         },
       },
@@ -75,10 +90,11 @@ export function Chart({
         y: {
           beginAtZero: true,
           title: {
-            display: true,
-            text: "人口数（万人）",
+            display: false,
+          },
+          ticks: {
             font: {
-              size: 12,
+              size: 10,
             },
           },
         },
@@ -88,6 +104,11 @@ export function Chart({
             text: "年份",
             font: {
               size: 12,
+            },
+          },
+          ticks: {
+            font: {
+              size: 10,
             },
           },
         },

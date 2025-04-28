@@ -70,7 +70,7 @@ export interface MarriageQuarterData {
 
 export interface MarriageYearData {
   marriages: number;
-  divorces: number;
+  divorces: number | null;
   source: string;
   quarters?: {
     Q1?: MarriageQuarterData;

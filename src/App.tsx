@@ -19,7 +19,7 @@ import {
 
 export function App() {
   // 人口数据相关状态
-  const [startYear, setStartYear] = useState(1950);
+  const [startYear, setStartYear] = useState(2004);
   const [showBirth, setShowBirth] = useState(true);
   const [showDeath, setShowDeath] = useState(true);
   const [processedData, setProcessedData] = useState<ProcessedData | null>(
@@ -38,9 +38,11 @@ export function App() {
     const convertedData = convertPopulationData(populationData);
     const range = getDataRange(convertedData);
     setDataRange(range);
-    setStartYear(range.minYear);
+    // 计算最近20年的起始年份
+    const recent20YearsStart = Math.max(range.minYear, range.maxYear - 19);
+    setStartYear(recent20YearsStart);
     setProcessedData(
-      processPopulationData(convertedData, range.minYear, range.maxYear),
+      processPopulationData(convertedData, recent20YearsStart, range.maxYear),
     );
   }, []);
 
@@ -58,7 +60,14 @@ export function App() {
 
   // 初始化婚姻数据
   useEffect(() => {
-    const processedData = processMarriageData(marriageData, 1985, 2025);
+    const range = getDataRange(convertPopulationData(populationData));
+    // 计算最近20年的起始年份
+    const recent20YearsStart = Math.max(1985, range.maxYear - 19);
+    const processedData = processMarriageData(
+      marriageData,
+      recent20YearsStart,
+      range.maxYear,
+    );
     setProcessedMarriageData(processedData);
   }, []);
 
@@ -76,8 +85,10 @@ export function App() {
       <main class="mt-8 space-y-8">
         {/* 人口数据部分 */}
         <section class="space-y-4">
+          <h2 class="text-xl md:text-2xl font-semibold text-center">
+            人口变化趋势
+          </h2>
           <div class="chart-container">
-            <h2 class="text-2xl font-semibold mb-4">人口变化趋势</h2>
             <div class="chart-wrapper">
               <Chart
                 data={processedData}
@@ -107,8 +118,10 @@ export function App() {
 
         {/* 婚姻数据部分 */}
         <section class="space-y-4">
+          <h2 class="text-xl md:text-2xl font-semibold text-center">
+            婚姻变化趋势
+          </h2>
           <div class="chart-container">
-            <h2 class="text-2xl font-semibold mb-4">婚姻变化趋势</h2>
             <div class="chart-wrapper">
               <MarriageChart
                 data={processedMarriageData}
